@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Programa Situação da turma</h1>
+    <hr>
+    <p>
+        <label for="">Nome Aluno(a): </label>
+        <input id="nome" type="text">
+    </p>
+    <p>
+        <label for="">1° Nota: </label>
+        <input id="nota1" type="number">
+    </p>
+    <p>
+        <label for="">2° Nota: </label>
+        <input id="nota2" type="number">
+    </p>
+    <button id="mediaAluno">Exibir média do Aluno</button>
+    <button id="mediaSala">Exibir média da Turma</button>
+
+    <P id="mediaAlunoOut"></P>
+    <P id="mensagemAprovacao"></P>
+    <p id="mediaSalaOut"></p>
+    <script>
+        var nota01,nota02,aluno
+        nota01=document.getElementById('nota1')
+        nota02=document.getElementById('nota2')
+        aluno=document.getElementById('nome')
+
+        var notasSala=[],alunos=[]
+
+        document.getElementById('mediaAluno').addEventListener('click',_=>{
+        if(nota01.value==''|nota02.value==''|aluno.value==''){
+            alert('Todos os campos devem ser preenchidos')
+        }else if(alunos.indexOf(aluno.value)!=-1){
+            alert('As notas desse aluno já foram registradas')
+        }else if(nota01.value<0|nota01.value>10|nota02.value<0|nota02.value>10){
+            alert('As notas informadas devem estar entre "0" e "10"')
+        }else{
+            let mensagem=document.getElementById('mensagemAprovacao')
+            let media=(parseFloat(nota01.value)+parseFloat(nota02.value))/2
+            
+            document.getElementById('mediaAlunoOut').textContent='Média da nota '+media
+            if(media>=7){
+                mensagem.style.color='blue'
+                mensagem.textContent=`Parabéns ${aluno.value}! Você foi aprovado(a)!`
+            }else if(media>=3&&media<7){
+                mensagem.style.color='green'
+                mensagem.textContent=`Atenção ${aluno.value}, Você está em recuperação`
+            }else{
+                mensagem.style.color='red'
+                mensagem.textContent=`Ops ${aluno.value}, Você foi reprovado`
+            }
+
+            notasSala.push(media)
+            alunos.push(aluno.value)
+            }
+        })
+
+        document.getElementById('mediaSala').addEventListener('click',_=>{
+            let mediaSala=0
+
+            for(i=0;i<notasSala.length;i++){
+                mediaSala+=notasSala[i]
+            }
+
+            if(notasSala.length!=0){
+                document.getElementById('mediaSalaOut').textContent=`Média da turma ${(mediaSala/notasSala.length).toFixed(2)}`
+            }else{
+                document.getElementById('mediaSalaOut').textContent='Não foram informadas notas de quaisquer alunos'
+            }
+        })
+    </script>
+</body>
+</html>

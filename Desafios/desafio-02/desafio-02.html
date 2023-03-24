@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(2,350px) 600px;
+            grid-template-rows: repeat(7,38.5px) 10px repeat(4,38.5px);
+            grid-column-gap: 10px;
+
+            grid-row-gap: 5px;
+        }
+        .gridItem{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 13;
+
+            margin: 0;
+        }
+        .img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .titulo{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 4;
+            grid-row-end: 5;
+
+            margin: 0;
+        }
+        .input1{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 5;
+            grid-row-end: 6;
+
+            margin: 0;
+        }
+        .input2{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 6;
+            grid-row-end: 7;
+
+            display: flex;
+            align-items: center;
+        }
+        .input3{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 7;
+            grid-row-end: 8;
+        }
+        .botoes{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 9;
+            grid-row-end: 10;
+        }
+        input[type=text],input[type=number]{
+            height: 85%;
+        }
+        button{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <figure class="gridItem">
+            <img class="img" src="./kenny-eliason-5ddH9Y2accI-unsplash.jpg" alt="">
+        </figure>
+        <h2 class="titulo">Programa Cálculo do peso ideal</h2>
+        <div class="input1">
+            <label for="">Nome: </label>
+            <input type="text">
+        </div>
+        <div class="input2">
+            <label for="">Sexo: </label>
+            <input type="radio" name="sexo" id="">
+            <label for="">Masculino</label>
+            <input type="radio" name="sexo" id="">
+            <label for="">Feminino</label>
+        </div>
+        <div class="input3">
+            <label for="">Altura: </label>
+            <input type="number" placeholder="Ex: 1.82">
+        </div>
+        <div class="botoes">
+            <button>Calcular peso ideal</button>
+            <button>Limpar Campos</button>
+        </div>
+    </div>
+    
+    <script>
+        
+    </script>
+</body>
+</html>
